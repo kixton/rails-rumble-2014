@@ -15,9 +15,13 @@ class EntitiesController < ApplicationController
   end
 
   def update
-  	@entity = Entity.find(params[:entity_id])
-  	@score = @entity.entities_scales.where(scale_id: params[:scale_id])
-  	@score.update(score: (@score.score+1))
+  	@entity = Entity.find(params[:id])
+  	@score = @entity.entities_scales.where(scale_id: params[:scale_id]).first
+  	if params[:vote] == "1"
+  		@score.update!({score: (@score.score+1), total: (@score.total+1)})
+  	elsif params[:vote] == "-1"
+  		@score.update!({score: (@score.score-1), total: (@score.total+1)})
+  	end
   	render json: @score
   end
 

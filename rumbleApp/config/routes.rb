@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "categories/:category_id/entities/:entity_id/scores" => 'entities#scores'
+  put "categories/:category_id/entities/:entity_id(/scales/:scale_id)" => 'entities#vote_plus'
   resources :categories, only: [:index, :show, :create] do 
     resources :entities, only: [:index, :show, :create]
     resources :scales, only: [:index, :show, :create]

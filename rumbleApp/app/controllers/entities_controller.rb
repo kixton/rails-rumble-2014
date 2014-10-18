@@ -14,10 +14,10 @@ class EntitiesController < ApplicationController
   	render json: @scores
   end
 
-  def vote_plus
+  def update
   	@entity = Entity.find(params[:entity_id])
   	@score = @entity.entities_scales.where(scale_id: params[:scale_id])
-  	@score.score.increment!(:total)
+  	@score.update(score: (@score.score+1))
   	render json: @score
   end
 

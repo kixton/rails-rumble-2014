@@ -1,7 +1,13 @@
 class CategoriesController < ApplicationController
 	def index
 		@categories = Category.all
+		render json: @categories
 	end
+
+	# def show_all
+	# 	@categories = Category.all
+	# 	render json: @categories
+	# end
 
 	def create
 		@category = Category.new(name: params[:name])

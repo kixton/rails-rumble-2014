@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'categories#index'
   get "categories/:category_id/entities/:entity_id/scores" => 'entities#all_scores'
   get "categories/:category_id/entities/:entity_id/get_scores/:x_scale_id/:y_scale_id" => 'entities#get_scores'
+  get "categories/:id/get_scores/:x_scale_id/:y_scale_id" => 'categories#get_scores'
+  get "categories/:id/show_all" => 'categories#all_entities'
   resources :categories, only: [:index, :show, :create] do 
     resources :entities, only: [:index, :show, :create, :update]
     resources :scales, only: [:index, :show, :create]

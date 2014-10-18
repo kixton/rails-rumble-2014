@@ -3,7 +3,6 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity',
 
     $scope.categories = Category.query();
     console.log("!!");
-    console.log($scope.categories);
 
     // set x-axis labels
     // $scope.xScale = function(scale) {

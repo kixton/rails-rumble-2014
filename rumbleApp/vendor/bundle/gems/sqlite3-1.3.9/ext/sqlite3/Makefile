@@ -30,8 +30,13 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
+<<<<<<< HEAD
 sitearchdir = ./.gem.20141018-25507-lkoye0
 sitelibdir = ./.gem.20141018-25507-lkoye0
+=======
+sitearchdir = ./.gem.20141018-23228-1806pg0
+sitelibdir = ./.gem.20141018-23228-1806pg0
+>>>>>>> updated to sqlite3
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)

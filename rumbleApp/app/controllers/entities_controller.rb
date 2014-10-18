@@ -3,6 +3,10 @@ class EntitiesController < ApplicationController
   	render json: Category.find(params[:category_id]).entities
   end
 
+ 	def create
+ 		@entity = Entity.new({name: params[:name], category_id: params[:category_id]})
+ 	end
+
   def show
   	@entity = Entity.find(params[:id])
   	render json: @entity
@@ -30,5 +34,11 @@ class EntitiesController < ApplicationController
   	@x_score = @entity.entities_scales.where(scale_id: params[:x_scale_id]).first
   	@y_score = @entity.entities_scales.where(scale_id: params[:y_scale_id]).first
   	render json: {name: @entity.name, x: @x_score, y: @y_score}
+  end
+
+  def get_score
+  	@entity = Entity.find(params[:entity_id])
+  	@score = @entity.entities_scales.where(scale_id: params[:scale_id]).first
+  	render json: {name: @entity.name, scale: @score}
   end
 end

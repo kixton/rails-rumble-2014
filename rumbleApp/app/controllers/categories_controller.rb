@@ -3,6 +3,10 @@ class CategoriesController < ApplicationController
 		@categories = Category.all
 	end
 
+	def create
+		@category = Category.new(name: params[:name])
+	end
+
 	def all_entities
 		@entities = Category.find(params[:id]).entities
 		render json: @entities

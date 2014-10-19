@@ -2,12 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+.rumblelogo {
+  margin: 0 20px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  font-family: arial;
+  font-family: Lato;
+  position: relative;
+  min-height: 100%;
+  margin: 0 0 20px; /* bottom = footer height */
 }
 
 .container {
   text-align: center;
+}
+
+.railsrumble,
+.about {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.team-info {
+  vertical-align: top;
+  float: right;
+  border: 2px solid #eee;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+.railsrumble {
+  opacity: 0.5;
+  height: 30px;
+/*  position: absolute;
+  bottom: 0;
+  left: 0;*/
 }
 
 .main-div {
@@ -26,28 +70,55 @@ body {
   clear: both;
 }
 
+.scale-header,
+.scales,
+.cat-header,
 .categories {
   list-style: none;
   display: inline-block;
-  padding: 10px 30px;
-  background: #3f51b5;
+  padding: 5px 40px;
+  background: #3347af;
   color: #fff;
-  font-size: 30px;
-  margin-right: 1px;
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  /*border-radius: 12px;*/
+}
+
+.scale-header,
+.cat-header {
+  background: #666;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.scale-header {
+  font-size: 12px;
+}
+
+.scales {
+  font-size: 12px;
+  padding: 5px;
 }
 
 .categories:hover {
-  background: #3949ab;
+  background: #0cb0d1;
+}
+
+.active {
+  background: #0cb0d1;
 }
 
 .graph-container {
   background: #eeedef;
+  background-image: url('gray4.jpg');
   width: 800px;
-  height: 580px;
-  border: 1px solid #666;
+  height: 620px;
+  border: 1px solid #ddd;
   float: left;
   position: relative;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 #graph {
@@ -81,18 +152,19 @@ body {
 
 .menu {
   background: #eeedef;
+  background-image: url('gray4.jpg');
   width: 300px;
-  border: 1px solid #666;
+  border: 1px solid #ddd;
   float: left;
   margin-left: 20px;
   padding: 20px;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .scale1,
 .scale2 {
   display: inline-block;
-  background: #666;
+  background: #999;
   color: #fff;
 }
 
@@ -103,7 +175,7 @@ body {
 
 select {
   width: 135px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .scale1 {
@@ -112,23 +184,35 @@ select {
 
 .random {
   text-align: center;
-  /*background: #ff4081;*/
-  background: #F6C;
+  background: #f50057;
   color: #fff;
   padding: 10px;
   margin: 20px 0;
+  letter-spacing: 1px
 }
 
 .random:hover {
-  /*background: #f50057;*/
-  background: #fc49c0;
+  background: #e50050;
 }
 
 .entities {
   margin-top: 30px;
   text-align: left;
+  text-align: center;
 }
 
 .entity-score {
   display: inline-block;
+}
+
+.label-x {
+  position: absolute;
+  left: -40px;
+  top: 47%;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+  margin: 0;
 }

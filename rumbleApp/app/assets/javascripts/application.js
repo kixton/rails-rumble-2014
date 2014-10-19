@@ -16,5 +16,6 @@
 //= require angular
 //= require angular-resource
 //= require angular/app.js
-//= require_tree ./angular
+//= require_tree ./angular/models
+//= require_tree ./angular/controllers
 

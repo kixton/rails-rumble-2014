@@ -59,8 +59,8 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
           console.log(yValues);
           console.log(totals);
           paper.dotchart(0, 0, 500, 500, xValues, yValues, totals, {heat: true, max: 10, opacity: 0.5, axis:"0 0 1 1", axisxstep: 1, axisystep: 1, axisxtype: " ", axisytype: " "}).each(function(){
-            this.marker = this.maker || paper.tag(this.value).insertBefore(this);
-            this.maker.show();
+            this.marker = this.marker || paper.tag(this.value).insertBefore(this);
+            this.marker.show();
           });
       });      
     };

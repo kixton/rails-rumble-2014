@@ -7,23 +7,40 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       $scope.y = data[1];
     });
     $scope.entities = Entity.query();
-;
 
 
     $scope.load = function(){
-      $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function(data){
+      $scope.cat_selected = 1;
+      var xRand = Math.floor(Math.random()*6)+1;
+      var yRand = Math.floor(Math.random()*6)+1;
+      $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: xRand, y_scale_id: yRand}, function(data){
         $scope.graphScores();
       });
+      $scope.x_selected = xRand;
+      $scope.y_selected = yRand;
     };
 
     $scope.getScales = function(category){
-      Scale.query({category_id: category.id}, function(data){
+      $scope.cat_selected = category.id;
+      if (category.id === 1)
+      {
+        var xRand = Math.floor(Math.random()*6)+1;
+        var yRand = Math.floor(Math.random()*6)+1;
+      }
+      else {
+        var xRand = Math.floor(Math.random()*7)+7;
+        var yRand = Math.floor(Math.random()*7)+7;
+      }
+      console.log(xRand);
+      console.log(yRand);
+      Scale.query({category_id: category.id, x_scale_id: xRand, y_scale_id: yRand}, function(data){
         $scope.scales = data;
+        console.log(data)
         $scope.x = data[0];
         $scope.y = data[1];
         Entity.query({category_id: category.id}, function(data){
           $scope.entities = data;
-          $scope.entityScore = EntityScore.query({category_id: $scope.x.category_id, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function(data){
+          $scope.entityScore = EntityScore.query({category_id: $scope.x.category_id, x_scale_id: xRand, y_scale_id: yRand}, function(data){
             $scope.graphScores();
           });
         });
@@ -49,16 +66,15 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       var xAxis = paper.path("M 0 250 l 500 0");
       $scope.circle_array = [];
       $scope.label_array = [];
-      console.log($scope.circle_array)
       colors = ["#FFFF33", "#FF6600", "#FF3366", "#CCFFCC"]
+      console.log($scope.EntityScore)
       for (var i = 0; i < $scope.entityScore.length; i++) {
-          var c = paper.circle(250+(($scope.entityScore[i].x.score)*25), (250-($scope.entityScore[i].y.score)*25), 20);
+          var c = paper.circle(250+(($scope.entityScore[i].x.score)*15), (250-($scope.entityScore[i].y.score)*15), 20);
           $scope.circle_array.push(c);
           c.attr({fill: '#'+Math.floor(Math.random()*16777215).toString(16), "fill-opacity": 0.5, "stroke-opacity":0.1});
-          var l = paper.text(240+(($scope.entityScore[i].x.score)*25), (275-($scope.entityScore[i].y.score)*25), $scope.entityScore[i].name)
+          var l = paper.text(240+(($scope.entityScore[i].x.score)*15), (275-($scope.entityScore[i].y.score)*15), $scope.entityScore[i].name)
           $scope.label_array.push(l);
         }
-      console.log($scope.label_array);
     };
 
     $scope.reDrawScores = function(x_scale, y_scale, cat){
@@ -66,8 +82,8 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       $scope.entityScore = EntityScore.query({category_id: x_scale.category_id, x_scale_id: x_scale.id, y_scale_id: y_scale.id}, function(data){
           console.log(data);
         for (var i = 0; i < $scope.circle_array.length; i++) {
-         $scope.circle_array[i].animate({cx: 250+(data[i].x.score)*25, cy: 250-(data[i].y.score)*25}, 2000, "elastic");
-         $scope.label_array[i].animate({x: 240+(data[i].x.score)*25, y: 275-(data[i].y.score)*25}, 2000, "bounce");
+         $scope.circle_array[i].animate({cx: 250+(data[i].x.score)*15, cy: 250-(data[i].y.score)*15}, 2000, "elastic");
+         $scope.label_array[i].animate({x: 240+(data[i].x.score)*15, y: 275-(data[i].y.score)*15}, 2000, "bounce");
         }
       });
     };

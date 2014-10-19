@@ -6,7 +6,7 @@
 
       <div class="header">
         <span class="cat-header">CATEGORIES</span>
-        <li class="categories" name='selectCategory' ng-repeat="category in categories" ng-click='getScales(category)'>
+        <li class="categories" name='selectCategory' ng-repeat="category in categories" ng-click='getScales(category)' ng-class = '{active: category.id == cat_selected}'>
             {{category.name | uppercase}}
         </li>
       </div>

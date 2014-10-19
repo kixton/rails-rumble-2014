@@ -1,27 +1,54 @@
 <div ng-app="rumbleApp">
   <div ng-controller="MainController">
   
-    <h1>Categories</h1>
-    <h3 ng-repeat="category in categories" ng-click='getScales(category)'>
-      {{category.name}}
-    </h3>
+    <div class="container">
 
-    <div>
-      <p>Scale 1:</p>
-      <select name='scale1' size='5' MULTIPLE>
-        <option ng-repeat='scale in scales' ng-value='scale.id'>
-          {{scale.name}}
-        </option>
-      </select>
+      <div class="header">
+        <li class="categories" name='selectCategory' ng-repeat="category in categories" ng-click='getScales(category)'>
+            {{category.name}}
+        </li>
+      </div>
 
-	<div id="graph">
-	</div>
-      <p>Scale 2:</p>
-      <select name='scale2' size='5' MULTIPLE>
-        <option ng-repeat='scale in scales' ng-value='scale.id'>
-          {{scale.name}}
-        </option>
-      </select>
+      <div class="main-div">
+        <div class="graph-container">
+          <div class="label-xplus">Label</div>
+          <div class="label-xneg">Label</div>
+          <div class="label-yplus">Label</div>
+          <div id="graph"></div>
+          <div class="label-yneg">Label</div>
+        </div>
+
+
+        <div class="menu">
+          <div class="scale1">
+            <p>Scale 1</p>
+            <select name='scale1' size='5' MULTIPLE>
+              <option ng-repeat='scale in scales' ng-value='scale.id'>
+                {{scale.name}}
+              </option>
+            </select>
+          </div>
+          <div class="scale2">
+            <p>Scale 2</p>
+            <select name='scale2' size='5' MULTIPLE>
+              <option ng-repeat='scale in scales' ng-value='scale.id'>
+                {{scale.name}}
+              </option>
+            </select>
+          </div>
+
+            <div class="random">
+              RANDOMIZE
+            </div>
+            <div class="entities">
+              <li ng-repeat="entity in entities">
+                {{entity.name}}
+              </li>
+            </div>
+        </div>
+        <div class="clear"></div>
+      </div> <!-- main -->
+
     </div>
-  </div>
+  </div> <!-- mainController -->
 </div>

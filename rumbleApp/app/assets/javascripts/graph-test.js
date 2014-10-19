@@ -22,13 +22,14 @@ window.onload = function(){
 		src: "http://static.squarespace.com/static/4f5694c424aca8d4f8e69194/t/52989bf6e4b0009d44d0a9cd/1385733246946/Dropbox-logo.png"
 	}
 	];
+
 	var circle_array = [];
-	image = paper.image("http://upload.wikimedia.org/wikipedia/commons/4/48/Lyft_logo.jpg", 60, 270, 40, 40);
-	image.attr({x: 20})
-	console.log(image)
+	var image = paper.image("http://upload.wikimedia.org/wikipedia/commons/4/48/Lyft_logo.jpg", 60, 270, 40, 40);
+	console.log(image);
+
 	$('#graph').click(function(){
-		console.log("x")
-		image.animate({width: 200, height: 200}, 2000, "elastic");
+		console.log("clicked");
+		image.animate({src: "http://upload.wikimedia.org/wikipedia/commons/4/48/Lyft_logo.jpg", x: 150, y: 50, height: 40, width: 40}, 1000, "elastic");
 	});
 	// for (var i = 0; i < array.length; i++) {
 	// 	var c = paper.image(array[i].src, array[i].x, array[i].y, 40, 40);

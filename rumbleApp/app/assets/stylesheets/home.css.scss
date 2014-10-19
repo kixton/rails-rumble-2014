@@ -2,8 +2,129 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  font-family: arial;
+}
+
+.container {
+  text-align: center;
+}
+
+.main-div {
+  text-align: center;
+  margin: 0 auto;
+  width: 1180px;
+}
+
+.header {
+  width: 1180px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.categories {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 30px;
+  background: #3f51b5;
+  color: #fff;
+  font-size: 30px;
+  margin-right: 1px;
+}
+
+.categories:hover {
+  background: #3949ab;
+}
+
+.graph-container {
+  background: #eeedef;
+  width: 800px;
+  height: 580px;
+  border: 1px solid #666;
+  float: left;
+  position: relative;
+  text-align: center;
+}
+
 #graph {
-	width: 500px;
-	height: 500px;
-	border: 1px solid black
+  background: #fff;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.label-xplus,
+.lable-xneg,
+.label-yplus,
+.label-yneg {
+  margin: 10px;
+}
+
+.label-xplus {
+  position: absolute;
+  top: 270px;
+  left: 650px;
+}
+
+.label-xneg {
+  width: 130px;
+  text-align: right;
+  position: absolute;
+  top: 280px;
+  left: 10px;
+}
+
+.menu {
+  background: #eeedef;
+  width: 300px;
+  border: 1px solid #666;
+  float: left;
+  margin-left: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.scale1,
+.scale2 {
+  display: inline-block;
+  background: #666;
+  color: #fff;
+}
+
+.scale1 p,
+.scale2 p {
+  margin: 10px;
+}
+
+select {
+  width: 135px;
+  font-size: 14px;
+}
+
+.scale1 {
+  margin-right: 20px;
+}
+
+.random {
+  text-align: center;
+  /*background: #ff4081;*/
+  background: #F6C;
+  color: #fff;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.random:hover {
+  /*background: #f50057;*/
+  background: #fc49c0;
+}
+
+.entities {
+  margin-top: 30px;
+  text-align: left;
 }

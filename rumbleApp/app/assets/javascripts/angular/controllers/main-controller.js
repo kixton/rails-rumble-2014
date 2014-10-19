@@ -11,7 +11,7 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
     $scope.new_circle_array = [];
     
     $scope.load = function(){
-      $scope.entityScore = EntityScore.query({category_id: $scope.x.category_id, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function(data){
+      $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function(data){
         $scope.graphScores();
       });
     };

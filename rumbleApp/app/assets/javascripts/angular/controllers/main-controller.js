@@ -45,6 +45,9 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
         var totals = [200];
         var labels = [];
         colors = ["#FFFF33", "#FF6600", "#FF3366", "#CCFFCC"]
+        var xValues = [];
+        var yValues = [];
+        var totals = [];
         for (var i = 0; i < $scope.entityScore.length; i++) {
           xValues.push($scope.entityScore[i].x.score);
           yValues.push($scope.entityScore[i].y.score);
@@ -61,6 +64,8 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
           paper.dotchart(0, 0, 500, 500, xValues, yValues, totals, {heat: true, max: 10, opacity: 0.5, axis:"0 0 1 1", axisxstep: 1, axisystep: 1, axisxtype: " ", axisytype: " "}).each(function(){
             this.marker
           });
+          paper.dotchart(0,0,500,500,xValues,yValues,totals, {max: 10, opacity: 0.5, heat: true, axis:"0 0 1 1", axisxstep: 5, axisystep: 5, axisxtype: " ", axisytype: " "});
+          // {max: 40, symbol: 'circle', , opacity: 0.5}
       });      
     };
 

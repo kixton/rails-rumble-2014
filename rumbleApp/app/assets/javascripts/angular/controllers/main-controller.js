@@ -2,7 +2,14 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity',
   function($scope, Category, Scale, Entity) {
 
     $scope.categories = Category.query();
+    $scope.scales = Scale.query();
     console.log("!!");
+
+    $scope.getScales = function(category){
+      Scale.query({category_id: category.id}, function(data){
+        $scope.scales = data;
+      })
+    }
 
     // set x-axis labels
     // $scope.xScale = function(scale) {

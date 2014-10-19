@@ -1,15 +1,27 @@
-
 <div ng-app="rumbleApp">
-
   <div ng-controller="MainController">
   
     <h1>Categories</h1>
-    <h3 ng-repeat="category in categories">
+    <h3 ng-repeat="category in categories" ng-click='getScales(category)'>
       {{category.name}}
     </h3>
 
-  </div>
+    <div>
+      <p>Scale 1:</p>
+      <select name='scale1' size='5' MULTIPLE>
+        <option ng-repeat='scale in scales' ng-value='scale.id'>
+          {{scale.name}}
+        </option>
+      </select>
 
 	<div id="graph">
 	</div>
+      <p>Scale 2:</p>
+      <select name='scale2' size='5' MULTIPLE>
+        <option ng-repeat='scale in scales' ng-value='scale.id'>
+          {{scale.name}}
+        </option>
+      </select>
+    </div>
+  </div>
 </div>

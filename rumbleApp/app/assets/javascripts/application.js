@@ -21,4 +21,6 @@
 //= require g.raphael-min.js
 //= require g.dot-min.js
 //= require graph-test
+//= require_tree ./angular/models
+//= require_tree ./angular/controllers
 

@@ -35,16 +35,14 @@
           </div>
           
           <span class="scale-header">SCALE 1</span>
-            <li class="scales" ng-repeat="scale in scales" ng-click="xScale(scale)">
+            <li class="scales" ng-repeat="scale in scales" ng-click="xScale(scale)" ng-class = '{active: scale.id == x_selected}'>
                 {{scale.name | uppercase}}
             </li>
-            <li class="scales active">SCALE SELECTED</li>
           <br><br>
           <span class="scale-header">SCALE 2</span>
-            <li class="scales" ng-repeat="scale in scales" ng-click="yScale(scale)">
+            <li class="scales" ng-repeat="scale in scales" ng-click="yScale(scale)" ng-class = '{active: scale.id == y_selected}'>
                 {{scale.name | uppercase}}
             </li>
-            <li class="scales active">SCALE SELECTED</li>
 
             <!-- <div class="entities">
               <span class="scale-header">COMPANIES</span>

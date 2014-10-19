@@ -7,7 +7,9 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       $scope.y = data[1];
     });
     $scope.entities = Entity.query();
-    
+;
+
+
     $scope.load = function(){
       $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function(data){
         $scope.graphScores();
@@ -74,7 +76,7 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       Scale.get({category_id: scale.category_id, scale_id: scale.id}, function(scale) {
         $scope.x = scale;
         $scope.reDrawScores($scope.x, $scope.y, $scope.x.category_id);
-        // Entity.query({});
+        $scope.x_selected = scale.id;
       });
     };
 
@@ -83,6 +85,7 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       Scale.get({category_id: scale.category_id, scale_id: scale.id},function(scale) {
         $scope.y = scale;
         $scope.reDrawScores($scope.x, $scope.y, $scope.x.category_id);
+        $scope.y_selected = scale.id;
       });    
     };
 

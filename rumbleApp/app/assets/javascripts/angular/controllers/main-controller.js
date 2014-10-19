@@ -40,9 +40,9 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       var circle_array = [];
             // var maxscale = $scope.entityScoreRand;
       $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function() {
-        var xValues = [-20];
-        var yValues = [-20];
-        var totals = [200];
+        var xValues = [];
+        var yValues = [];
+        var totals = [];
         var labels = [];
         colors = ["#FFFF33", "#FF6600", "#FF3366", "#CCFFCC"]
         for (var i = 0; i < $scope.entityScore.length; i++) {
@@ -59,7 +59,8 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
           console.log(yValues);
           console.log(totals);
           paper.dotchart(0, 0, 500, 500, xValues, yValues, totals, {heat: true, max: 10, opacity: 0.5, axis:"0 0 1 1", axisxstep: 1, axisystep: 1, axisxtype: " ", axisytype: " "}).each(function(){
-            this.marker
+            this.marker = this.maker || paper.tag(this.value).insertBefore(this);
+            this.maker.show();
           });
       });      
     };

@@ -11,19 +11,19 @@
 
       <div class="main-div">
         <div class="graph-container">
-          <div class="label-xplus">Label</div>
-          <div class="label-xneg">Label</div>
-          <div class="label-yplus">Label</div>
+          <div class="label-xplus">{{x.positive}}</div>
+          <div class="label-xneg">{{x.negative}}</div>
+          <div class="label-yplus">{{y.positive}}</div>
           <div id="graph"></div>
-          <div class="label-yneg">Label</div>
+          <div class="label-yneg">{{y.negative}}</div>
         </div>
 
 
         <div class="menu">
           <div class="scale1">
             <p>Scale 1</p>
-            <select name='scale1' size='5' MULTIPLE>
-              <option ng-repeat='scale in scales' ng-value='scale.id'>
+            <select name='scale1' size='5' MULTIPLE ng-change='' ng-model='x'>
+              <option ng-repeat='scale in scales' ng-value='scale'>
                 {{scale.name}}
               </option>
             </select>
@@ -31,20 +31,20 @@
           <div class="scale2">
             <p>Scale 2</p>
             <select name='scale2' size='5' MULTIPLE>
-              <option ng-repeat='scale in scales' ng-value='scale.id'>
+              <option ng-repeat='scale in scales' ng-value='scale'>
                 {{scale.name}}
               </option>
             </select>
           </div>
 
-            <div class="random" ng-click="graphScores()">
-              RANDOMIZE
-            </div>
-            <div class="entities">
-              <li ng-repeat="entity in entities">
-                {{entity.name}}
-              </li>
-            </div>
+          <div class="random" ng-click="graphScores()">
+            RANDOMIZE
+          </div>
+          <div class="entities">
+            <li ng-repeat="entity in entities">
+              {{entity.name}}
+            </li>
+          </div>
         </div>
         <div class="clear"></div>
       </div> <!-- main -->

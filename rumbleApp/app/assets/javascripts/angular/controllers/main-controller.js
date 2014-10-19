@@ -2,7 +2,10 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
   function($scope, Category, Scale, Entity, EntityScore) {
     $scope.nothing = '';
     $scope.categories = Category.query();
-    $scope.scales = Scale.query();
+    $scope.scales = Scale.query(function(data){
+      $scope.x = data[0];
+      $scope.y = data[1];
+    });
     $scope.entities = Entity.query();
     // $scope.entityScore = EntityScore.query();
     $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1});
@@ -10,6 +13,8 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
     $scope.getScales = function(category){
       Scale.query({category_id: category.id}, function(data){
         $scope.scales = data;
+        $scope.x = data[0];
+        $scope.y = data[1];
       });
       Entity.query({category_id: category.id}, function(data){
         $scope.entities = data;
@@ -35,7 +40,7 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
             // var maxscale = $scope.entityScoreRand;
       $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1});
       console.log("yo");
-      console.log($scope.entityScore);
+      // console.log($scope.entityScore);
         // for (var i = 0; i < 10; i++) {
         // console.log(i);
         // var c = paper.circle(250+(($scope.entityScore[i].x.score)*25), (250-($scope.entityScore[i].y.score)*25), 20);
@@ -45,22 +50,19 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
 
 
     // set x-axis labels
-    // $scope.xScale = function(scale) {
-    //   Scale.query({category_id: scale.category_id, scale_id: scale.id}, function(scale) {
-    //     $scope.xpositive = scale.positive;
-    //     $scope.xnegative = scale.negative;
-    //     // Entity.query({});
-    //   });
-
-    // };
+    $scope.xScale = function(scale) {
+      Scale.query({category_id: scale.category_id, scale_id: scale.id}, function(scale) {
+        $scope.x = scale;
+        // Entity.query({});
+      });
+    };
 
     // set y-axis labels
-    // $scope.yScale = function(scale) {
-    //   Scale.query({category_id: scale.category_id, scale_id: scale.id},function(scale) {
-    //     $scope.ypositive = scale.positive;
-    //     $scope.ynegative = scale.negative;
-    //   });    
-    // };
+    $scope.yScale = function(scale) {
+      Scale.query({category_id: scale.category_id, scale_id: scale.id},function(scale) {
+        $scope.y = scale;
+      });    
+    };
 
   }
 ]);

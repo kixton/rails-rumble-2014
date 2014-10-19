@@ -1,5 +1,5 @@
 <div ng-app="rumbleApp">
-  <div ng-controller="MainController" ng-init="graphScores()">
+  <div ng-controller="MainController" ng-init="load()">
    <!-- ng-init="graphScores()" -->
 
     <div class="container">
@@ -30,18 +30,18 @@
             <select name='scale1' size='5' MULTIPLE ng-change='' ng-model='x'>
               <option ng-repeat='scale in scales' ng-value='scale'> -->
           
-          <div class="random" ng-click="graphScores()">
+          <div class="random" ng-click="randomize()">
             RANDOMIZE
           </div>
           
           <span class="scale-header">SCALE 1</span>
-            <li class="scales" ng-repeat="scale in scales" ng-value="scale" ng-click="xScale(scale)">
+            <li class="scales" ng-repeat="scale in scales" ng-click="xScale(scale)">
                 {{scale.name | uppercase}}
             </li>
             <li class="scales active">SCALE SELECTED</li>
           <br><br>
           <span class="scale-header">SCALE 2</span>
-            <li class="scales" ng-repeat="scale in scales" ng-value="scale.id" >
+            <li class="scales" ng-repeat="scale in scales" ng-click="yScale(scale)">
                 {{scale.name | uppercase}}
             </li>
             <li class="scales active">SCALE SELECTED</li>

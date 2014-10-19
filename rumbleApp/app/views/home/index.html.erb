@@ -1,6 +1,6 @@
 <div ng-app="rumbleApp">
-  <div ng-controller="MainController">
-  
+  <div ng-controller="MainController" ng-init="graphScores()">
+   <!-- ng-init="graphScores()" -->
     <div class="container">
 
       <div class="header">
@@ -37,7 +37,7 @@
             </select>
           </div>
 
-            <div class="random">
+            <div class="random" ng-click="graphScores()">
               RANDOMIZE
             </div>
             <div class="entities">
@@ -50,5 +50,16 @@
       </div> <!-- main -->
 
     </div>
+    <div class="entity-score">
+      <li ng-repeat="score in entityScore">
+        ({{score.x.score}}, {{score.y.score}}), out of {{score.x.total}}
+      </li>
+    </div>
+    <div class="entity-score">
+      <li ng-repeat="score in entityScoreR">
+        ({{score.x.score}}, {{score.y.score}}), out of {{score.x.total}}
+      </li>
+    </div>
   </div> <!-- mainController -->
 </div>
+

@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20141018003419) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -29,7 +26,7 @@ ActiveRecord::Schema.define(version: 20141018003419) do
     t.datetime "updated_at"
   end
 
-  add_index "entities", ["category_id"], name: "index_entities_on_category_id", using: :btree
+  add_index "entities", ["category_id"], name: "index_entities_on_category_id"
 
   create_table "entities_scales", force: true do |t|
     t.integer  "score"
@@ -40,8 +37,8 @@ ActiveRecord::Schema.define(version: 20141018003419) do
     t.datetime "updated_at"
   end
 
-  add_index "entities_scales", ["entity_id"], name: "index_entities_scales_on_entity_id", using: :btree
-  add_index "entities_scales", ["scale_id"], name: "index_entities_scales_on_scale_id", using: :btree
+  add_index "entities_scales", ["entity_id"], name: "index_entities_scales_on_entity_id"
+  add_index "entities_scales", ["scale_id"], name: "index_entities_scales_on_scale_id"
 
   create_table "scales", force: true do |t|
     t.string   "name"
@@ -52,6 +49,6 @@ ActiveRecord::Schema.define(version: 20141018003419) do
     t.datetime "updated_at"
   end
 
-  add_index "scales", ["category_id"], name: "index_scales_on_category_id", using: :btree
+  add_index "scales", ["category_id"], name: "index_scales_on_category_id"
 
 end

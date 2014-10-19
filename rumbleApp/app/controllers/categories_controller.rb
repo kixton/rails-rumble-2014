@@ -4,10 +4,10 @@ class CategoriesController < ApplicationController
 		render json: @categories
 	end
 
-	# def show_all
-	# 	@categories = Category.all
-	# 	render json: @categories
-	# end
+	def get_scales
+		@categories = Category.find(params[:id])
+		@scales = @categories.scales
+	end
 
 	def create
 		@category = Category.new(name: params[:name])

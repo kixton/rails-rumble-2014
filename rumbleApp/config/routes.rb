@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "categories/:category_id/entities/:entity_id/get_scores/:x_scale_id/:y_scale_id" => 'entities#get_scores'
   get "categories/:category_id/entities/:entity_id/get_score/:scale_id"=> 'entities#get_score'
   get "categories/:id/get_scores/:x_scale_id/:y_scale_id" => 'categories#get_scores'
-  get "categories/:id/show_all" => 'categories#all_entities'
+#  get "categories/:id/show_all" => 'categories#all_entities'
   resources :categories, only: [:index, :show, :create] do 
     resources :entities, only: [:index, :show, :create, :update]
     resources :scales, only: [:index, :show, :create]

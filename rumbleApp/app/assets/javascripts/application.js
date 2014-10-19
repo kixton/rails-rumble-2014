@@ -17,4 +17,8 @@
 //= require angular-resource
 //= require angular/app.js
 //= require_tree ./angular
+//= require raphael-min.js
+//= require g.raphael-min.js
+//= require g.dot-min.js
+//= require graph-test
 

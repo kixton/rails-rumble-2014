@@ -7,8 +7,6 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       $scope.y = data[1];
     });
     $scope.entities = Entity.query();
-    // $scope.entityScore = EntityScore.query();
-    $scope.new_circle_array = [];
     
     $scope.load = function(){
       $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function(data){
@@ -21,12 +19,12 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
         $scope.scales = data;
         $scope.x = data[0];
         $scope.y = data[1];
-      });
-      Entity.query({category_id: category.id}, function(data){
-        $scope.entities = data;
-        $scope.entityScore = EntityScore.query({category_id: $scope.x.category_id, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function(data){
-        $scope.graphScores();
-      });
+        Entity.query({category_id: category.id}, function(data){
+          $scope.entities = data;
+          $scope.entityScore = EntityScore.query({category_id: $scope.x.category_id, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function(data){
+            $scope.graphScores();
+          });
+        });
       });
     };
 
@@ -49,8 +47,8 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
       var xAxis = paper.path("M 0 250 l 500 0");
       $scope.circle_array = [];
       $scope.label_array = [];
-            // var maxscale = $scope.entityScoreRand;
-        colors = ["#FFFF33", "#FF6600", "#FF3366", "#CCFFCC"]
+      console.log($scope.circle_array)
+      colors = ["#FFFF33", "#FF6600", "#FF3366", "#CCFFCC"]
       for (var i = 0; i < $scope.entityScore.length; i++) {
           var c = paper.circle(250+(($scope.entityScore[i].x.score)*25), (250-($scope.entityScore[i].y.score)*25), 20);
           $scope.circle_array.push(c);

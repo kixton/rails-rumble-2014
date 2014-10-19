@@ -19,62 +19,33 @@
           <div class="label-yplus">{{y.positive}}</div>
           <div id="graph"></div>
           <div class="label-yneg">{{y.negative}}</div>
-          <div class="label-yplus">ENTERTAINING</div>
           <div class="label-x scales active">SCALE X LABEL</div>
-          <div class="label-xneg">USELESS</div>
-          <div class="label-xplus">USEFUL</div>
-          <div id="graph"></div>
-          <div class="label-yneg">BORING</div>
           <div class="label-y scales active">SCALE Y LABEL</div>
         </div>
 
 
         <div class="menu">
-          <div class="scale1">
+<!--           <div class="scale1">
             <p>Scale 1</p>
             <select name='scale1' size='5' MULTIPLE ng-change='' ng-model='x'>
-              <option ng-repeat='scale in scales' ng-value='scale'>
+              <option ng-repeat='scale in scales' ng-value='scale'> -->
+          
           <div class="random" ng-click="graphScores()">
             RANDOMIZE
           </div>
           
           <span class="scale-header">SCALE 1</span>
-            <li class="scales" ng-repeat="scale in scales" ng-value="scale.id">
+            <li class="scales" ng-repeat="scale in scales" ng-value="scale" ng-click="xScale(scale)">
                 {{scale.name | uppercase}}
             </li>
             <li class="scales active">SCALE SELECTED</li>
           <br><br>
           <span class="scale-header">SCALE 2</span>
-            <li class="scales" ng-repeat="scale in scales" ng-value="scale.id">
+            <li class="scales" ng-repeat="scale in scales" ng-value="scale.id" >
                 {{scale.name | uppercase}}
             </li>
             <li class="scales active">SCALE SELECTED</li>
-          <!-- <div class="scale1">
-            <p>SCALE 1</p>
-            <select name='scale1' size='5' MULTIPLE>
-              <option ng-repeat='scale in scales' ng-value='scale.id'>
-                {{scale.name}}
-              </option>
-            </select>
-          </div>
-          <div class="scale2">
-            <p>SCALE 2</p>
-            <select name='scale2' size='5' MULTIPLE>
-              <option ng-repeat='scale in scales' ng-value='scale'>
-                {{scale.name}}
-              </option>
-            </select>
-          </div> -->
 
-
-          <div class="random" ng-click="graphScores()">
-            RANDOMIZE
-          </div>
-          <div class="entities">
-            <li ng-repeat="entity in entities">
-              {{entity.name}}
-            </li>
-          </div>
             <div class="entities">
               <span class="scale-header">COMPANIES</span>
               <li class="scales active">SHOW ALL</li>
@@ -88,16 +59,7 @@
       </div> <!-- main -->
 
     </div>
-<!--     <div class="entity-score">
-      <li ng-repeat="score in entityScore">
-        ({{score.x.score}}, {{score.y.score}}), out of {{score.x.total}}
-      </li>
-    </div>
-    <div class="entity-score">
-      <li ng-repeat="score in entityScoreR">
-        ({{score.x.score}}, {{score.y.score}}), out of {{score.x.total}}
-      </li>
-    </div> -->
+
   </div> <!-- mainController -->
 </div>
 

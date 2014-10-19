@@ -10,6 +10,7 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
     // $scope.entityScore = EntityScore.query();
     $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1});
 
+
     $scope.getScales = function(category){
       Scale.query({category_id: category.id}, function(data){
         $scope.scales = data;
@@ -34,19 +35,34 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
     $scope.graphScores = function(){
       $("#graph").empty();
       var paper = new Raphael(document.getElementById('graph'));
-      var yAxis = paper.path("M 250 0 l 0 500");
-      var xAxis = paper.path("M 0 250 l 500 0");
+      // var yAxis = paper.path("M 250 0 l 0 500");
+      // var xAxis = paper.path("M 0 250 l 500 0");
       var circle_array = [];
             // var maxscale = $scope.entityScoreRand;
-      $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1});
-      console.log("yo");
-      // console.log($scope.entityScore);
-        // for (var i = 0; i < 10; i++) {
-        // console.log(i);
-        // var c = paper.circle(250+(($scope.entityScore[i].x.score)*25), (250-($scope.entityScore[i].y.score)*25), 20);
-        // }
+      $scope.entityScore = EntityScore.query({category_id: 1, x_scale_id: Math.floor(Math.random()*6)+1, y_scale_id: Math.floor(Math.random()*6)+1}, function() {
+        var xValues = [-20];
+        var yValues = [-20];
+        var totals = [200];
+        var labels = [];
+        colors = ["#FFFF33", "#FF6600", "#FF3366", "#CCFFCC"]
+        for (var i = 0; i < $scope.entityScore.length; i++) {
+          xValues.push($scope.entityScore[i].x.score);
+          yValues.push($scope.entityScore[i].y.score);
+          totals.push($scope.entityScore[i].x.total);
+            // var c = paper.circle(250+(($scope.entityScore[i].x.score)*25), (250-($scope.entityScore[i].y.score)*25), 20);
+            // c.attr({fill: '#'+Math.floor(Math.random()*16777215).toString(16), "fill-opacity": 0.5, "stroke-opacity":0.1});
+            // var l = paper.text(240+(($scope.entityScore[i].x.score)*25), (275-($scope.entityScore[i].y.score)*25), $scope.entityScore[i].name)
+            // console.log($scope.entityScore[i].x.score)
+            // console.log($scope.entityScore[0].x.scale_id)
+          }
+          console.log(xValues);
+          console.log(yValues);
+          console.log(totals);
+          paper.dotchart(0, 0, 500, 500, xValues, yValues, totals, {heat: true, max: 10, opacity: 0.5, axis:"0 0 1 1", axisxstep: 1, axisystep: 1, axisxtype: " ", axisytype: " "}).each(function(){
+            this.marker
+          });
+      });      
     };
-
 
 
     // set x-axis labels

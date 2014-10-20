@@ -93,7 +93,10 @@ body {
   padding: 5px;
 }
 
+.scales:hover,
 .categories:hover {
+  cursor: pointer;
+  cursor: hand;
   background: #0cb0d1;
 }
 
@@ -109,7 +112,7 @@ body {
   border: 1px solid #ddd;
   float: left;
   position: relative;
-  margin-bottom: 10%;
+  margin-bottom: 50px;
   /*text-align: center;*/
 }
 
@@ -145,13 +148,46 @@ body {
 .menu {
   background: #eeedef;
   background-image: url('gray4.jpg');
-  width: 300px;
+  width: 360px;
   height: 600px;
   border: 1px solid #ddd;
   float: left;
   margin-left: 20px;
   padding: 20px;
   /*text-align: center;*/
+}
+
+.rate-it {
+  border: 5px double black;
+  padding: 10px;
+  text-align: center;
+}
+
+.rate-it-header {
+  background: #000;
+  color: #fff;
+  padding: 7px;
+  letter-spacing: 1px;
+}
+
+.img-thumb {
+  height: 100px;
+  width: 100px;
+  margin: 15px;
+}
+
+.button-group {
+  margin: 0 auto;
+}
+
+.button.rate-btn {
+  background: #0cb0d1;
+  padding: 10px;
+  margin: 0;
+}
+
+.button.rate-btn.skip {
+  background: #999;
 }
 
 .scale1,

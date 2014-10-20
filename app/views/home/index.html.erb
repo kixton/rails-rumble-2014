@@ -19,20 +19,31 @@
           <div class="label-yplus">{{y.positive}}</div>
           <div id="graph"></div>
           <div class="label-yneg">{{y.negative}}</div>
-          <!-- <div class="label-x scales active">{{x.name | uppercase}}</div> -->
-          <!-- <div class="label-y scales active">{{y.name | uppercase}}</div> -->
         </div>
 
 
         <div class="menu">
-<!--           <div class="scale1">
-            <p>Scale 1</p>
-            <select name='scale1' size='5' MULTIPLE ng-change='' ng-model='x'>
-              <option ng-repeat='scale in scales' ng-value='scale'> -->
+
+<!--           <div class="rate-it">
+          <div class="rate-it-header">How innovative is Uber?</div>
+            <img class="img-thumb" src="http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/122013/uber_logo_0.png">
+
+            <center>
+            <ul class="button-group">
+              <li><a href="#" class="button rate-btn">Copycat</a></li>
+              <li><a href="#" class="button rate-btn">Game Changer</a></li>
+            </ul>
+            </center>
+
+          </div> -->
           
-          <div class="random" ng-click="randomize()">
-            RANDOMIZE
+          <div class="random" ng-click="randomizeR()">
+            RANDOMIZER
           </div>
+
+<!--           <div class="random" ng-click="randomize()">
+            RANDOMIZE
+          </div> -->
           
           <span class="scale-header">SCALE 1</span>
             <li class="scales" ng-repeat="scale in scales" ng-click="xScale(scale)" ng-class = '{active: scale.id == x_selected}'>
@@ -44,14 +55,6 @@
                 {{scale.name | uppercase}}
             </li>
 
-            <!-- <div class="entities">
-              <span class="scale-header">COMPANIES</span>
-              <li class="scales active">SHOW ALL</li>
-              <li class="scales" ng-repeat="entity in entities">
-                {{entity.name }}
-              </li>
-              <li class="scales">CLEAR ALL</li>
-            </div> -->
         </div>
         <div class="clear"></div>
       </div> <!-- main -->

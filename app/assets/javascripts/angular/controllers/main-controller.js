@@ -115,6 +115,7 @@ app.controller('MainController', ['$scope', 'Category', 'Scale', 'Entity', 'Enti
 
           var c = paper.circle(250+(($scope.entityScore[i].x.score)*20), (250-($scope.entityScore[i].y.score)*20), 20);
           $scope.circle_array.push(c);
+
           c.attr({fill: '#'+Math.floor(Math.random()*16777215).toString(16), "fill-opacity": 0.5, "stroke-opacity":0.1});
           var l = paper.text(250+(($scope.entityScore[i].x.score)*20), (250-($scope.entityScore[i].y.score)*20), $scope.entityScore[i].name);
           $scope.label_array.push(l);

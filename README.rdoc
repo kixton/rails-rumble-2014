@@ -1,5 +1,6 @@
 == README
 
-This application is deployed at railsrumble.herokuapp.com
-It was created during a 48 hour hackathon by Kim Pham, Daniel Olasky, and Jeff Louie (MakerSquare students). The students had only learned about Angular the prior day, and Rails the prior week.
+* This application is deployed at railsrumble.herokuapp.com
+* It was created during a 48 hour hackathon by Kim Pham, Daniel Olasky, and Jeff Louie (MakerSquare students)
+* The students had only learned about Angular the prior day, and Rails the prior week.
 
